@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopEase - E-commerce Shopping Cart</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <h2>ShopEase</h2>
+      <nav>
+        <a href="#products">Products</a>
+        <a href="#cart">Shopping Cart</a>
+      </nav>
+      <span class="cart-badge">Cart: <span id="cart-count">0</span></span>
+    </header>
+
+    <section class="hero">
+      <h1>Welcome to ShopEase</h1>
+      <p>Find your favorite products at great prices.</p>
+      <a href="#products" class="shop-btn">Shop Now</a>
+    </section>
+
+    <main class="container">
+      <section id="products">
+        <h2>Our Products</h2>
+
+        <div class="filters">
+          <input
+            type="search"
+            id="search"
+            placeholder="Search products..."
+            aria-label="Search products"
+          />
+
+          <select id="category" aria-label="Filter by category">
+            <option value="all">All Categories</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Home">Home</option>
+          </select>
+
+          <select id="sort" aria-label="Sort products">
+            <option value="default">Featured</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="name">Name: A to Z</option>
+          </select>
+        </div>
+
+        <div id="product-list" class="product-grid"></div>
+        <p id="no-products" class="message" hidden>No products found.</p>
+      </section>
+
+      <section id="cart">
+        <h2>Shopping Cart</h2>
+
+        <div id="cart-items"></div>
+        <p id="empty-cart">Your cart is empty. Add some products!</p>
+
+        <div class="summary">
+          <h3>Order Summary</h3>
+
+          <p>
+            Subtotal:
+            <strong id="subtotal">₹0.00</strong>
+          </p>
+
+          <p>
+            Discount:
+            <strong id="discount">₹0.00</strong>
+          </p>
+
+          <p>
+            Delivery:
+            <strong>FREE</strong>
+          </p>
+
+          <div class="coupon">
+            <input
+              type="text"
+              id="coupon"
+              placeholder="Enter coupon code"
+              aria-label="Coupon code"
+            />
+            <button id="apply-coupon">Apply Coupon</button>
+          </div>
+
+          <p id="coupon-message" class="message" aria-live="polite"></p>
+
+          <h2>Total: <span id="total">₹0.00</span></h2>
+
+          <button id="checkout" class="checkout-btn" disabled>
+            Proceed to Checkout
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="checkout-dialog">
+      <form id="checkout-form">
+        <button
+          type="button"
+          id="close-dialog"
+          class="close-btn"
+          aria-label="Close checkout"
+        >
+          ×
+        </button>
+
+        <h2>Checkout</h2>
+        <p>Complete your details to place a demo order.</p>
+
+        <label for="customer-name">Full Name</label>
+        <input id="customer-name" name="name" required minlength="2" />
+
+        <label for="customer-email">Email</label>
+        <input id="customer-email" name="email" type="email" required />
+
+        <label for="customer-address">Delivery Address</label>
+        <textarea
+          id="customer-address"
+          name="address"
+          required
+          minlength="5"
+          rows="3"
+        ></textarea>
+
+        <h3>Amount: <span id="checkout-total">₹0.00</span></h3>
+
+        <button type="submit" class="checkout-btn">Place Demo Order</button>
+
+        <p class="small-note">Demo only. No real payment will be processed.</p>
+      </form>
+    </dialog>
+
+    <dialog id="success-dialog">
+      <h2>Order Placed Successfully!</h2>
+      <p id="success-message"></p>
+      <button id="continue-shopping" class="checkout-btn">
+        Continue Shopping
+      </button>
+    </dialog>
+
+    <footer>
+      <p>© 2026 ShopEase | CE-1 Mini Project</p>
+      <p>Built using HTML, CSS and JavaScript</p>
+    </footer>
+  </body>
+</html>
